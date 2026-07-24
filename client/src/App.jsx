@@ -7,7 +7,7 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
-import ChatBot from './components/ChatBot'
+import Terminal from './components/Terminal'
 
 function App() {
   useEffect(() => {
@@ -25,7 +25,7 @@ function App() {
         <section id="projects"><Projects /></section>
         <section id="contact"><Contact /></section>
       </main>
-      <ChatBot />
+      <Terminal />
     </div>
   )
 }

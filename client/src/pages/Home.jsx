@@ -5,7 +5,7 @@ import Projects from '../components/Projects'
 import Contact from '../components/Contact'
 import BinaryBackground from '../components/BinaryBackground'
 import Nav from '../components/Nav'
-import ChatBot from '../components/ChatBot'
+import Terminal from '../components/Terminal'
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
         <section id="projects"><Projects /></section>
         <section id="contact"><Contact /></section>
       </main>
-      <ChatBot />
+      <Terminal />
     </div>
   )
 }
