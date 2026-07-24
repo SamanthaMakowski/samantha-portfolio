@@ -8,6 +8,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Terminal from './components/Terminal'
+import GitHubFeed from './components/GitHubFeed'
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
         <section id="skills"><Skills /></section>
         <section id="projects"><Projects /></section>
         <section id="contact"><Contact /></section>
+        <GitHubFeed />
       </main>
       <Terminal />
     </div>
