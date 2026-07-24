@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import hipaaVideo from '../assets/hipaa-preview.mp4'
+import fhirVideo from '../assets/fhir-preview.mp4'
 import rbacVideo from '../assets/rbac-preview.mp4'
 
 const projects = [
@@ -23,13 +24,13 @@ const projects = [
     tags: ['JavaScript', 'Node.js', 'FHIR', 'Healthcare', 'Express'],
     live: 'https://fhir-patient-explorer.onrender.com',
     github: 'https://github.com/SamanthaMakowski/fhir-patient-explorer',
-    video: null,
+    video: fhirVideo,
     demo: [
-      { id: '123836453', note: 'April Thomas' },
-      { id: '131287660', note: 'Shannon Hooper' },
-      { id: '98067569', note: 'Alicia Rice' },
-      { id: '131286295', note: 'Melissa Price' },
-      { id: '90629914', note: 'Janet Mann' },
+      { id: '137222733', note: 'Every tab populated' },
+      { id: '137222734', note: 'Allergy heavy' },
+      { id: '137222735', note: 'Medication heavy' },
+      { id: '137222736', note: 'Conditions, meds & allergies' },
+      { id: '137222737', note: 'Conditions, meds & allergies' },
     ],
     flipContent: null,
   },
@@ -55,7 +56,7 @@ const projects = [
     github: 'https://github.com/SamanthaMakowski/samantha-portfolio',
     video: null,
     demo: null,
-    flipContent: null,
+    flipContent: `Open the GitHub repo and look at the BE folder. There are two backend servers running behind this page right now. One is tracking every visit, referrer, and device type in real time. One is ready to answer questions about my resume using retrieval. The binary background, typewriter effect, stacking cards, and flip panels are all hand coded. Nothing here came from a template.`,
   },
 ]
 
@@ -224,7 +225,7 @@ function FlipPanel({ video, demo, flipContent }) {
                         paddingBottom: '6px',
                         borderBottom: '0.5px solid rgba(212,160,176,0.1)',
                         fontWeight: 400,
-                      }}>Name</th>
+                      }}>Shows</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -252,10 +253,11 @@ function FlipPanel({ video, demo, flipContent }) {
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.55rem',
                   color: 'rgba(212,160,176,0.3)',
-                  letterSpacing: '0.1em',
-                  marginTop: '8px',
+                  letterSpacing: '0.08em',
+                  marginTop: '10px',
+                  lineHeight: 1.6,
                 }}>
-                  Data pulls from a public FHIR sandbox. IDs may change.
+                  These IDs pull from the public HAPI FHIR R4 sandbox at hapi.fhir.org. The sandbox resets periodically so these IDs may expire. To find current ones visit hapi.fhir.org/baseR4/Patient in your browser and use any id field in the response.
                 </p>
               </>
             ) : (
