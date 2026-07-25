@@ -6,9 +6,10 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
+import ChatBot from './components/ChatBot'
 import Contact from './components/Contact'
-import Terminal from './components/Terminal'
 import GitHubFeed from './components/GitHubFeed'
+import Terminal from './components/Terminal'
 
 function App() {
   useEffect(() => {
@@ -24,9 +25,10 @@ function App() {
         <section id="about"><About /></section>
         <section id="skills"><Skills /></section>
         <section id="projects"><Projects /></section>
+        <ChatBot />
         <section id="contact"><Contact /></section>
-        <GitHubFeed />
       </main>
+      <GitHubFeed />
       <Terminal />
     </div>
   )

@@ -292,7 +292,7 @@ export default function Projects() {
     <section style={{
       position: 'relative',
       zIndex: 1,
-      padding: '1rem 0 0',
+      padding: '10rem 0 0',
     }}>
       <div style={{
         padding: '0 2rem 2rem',
@@ -332,7 +332,7 @@ export default function Projects() {
       <div style={{
         maxWidth: '1000px',
         margin: '0 auto',
-        padding: '0 2rem 300px',
+        padding: '0 2rem 100px',
         display: 'flex',
         flexDirection: 'column',
       }}>

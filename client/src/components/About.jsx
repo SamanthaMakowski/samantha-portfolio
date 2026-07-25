@@ -5,7 +5,7 @@ export default function About() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '6rem 2rem',
+      padding: '13rem 2rem',
       position: 'relative',
       zIndex: 1,
     }}>

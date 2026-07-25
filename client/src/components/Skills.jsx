@@ -94,11 +94,11 @@ function getBadgeStyle(years) {
 export default function Skills() {
   return (
     <section style={{
-      minHeight: '100vh',
+      minHeight: 'auto',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '2rem 2rem 6rem',
+      padding: '3rem 2rem 6rem',
       position: 'relative',
       zIndex: 1,
     }}>
