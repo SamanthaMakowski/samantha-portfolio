@@ -9,7 +9,7 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 const ALLOWED_ORIGINS = [
   'http://localhost:5173',
   'http://localhost:3000',
-  'https://samantha-portfolio.onrender.com',
+  'https://samantha-portfolio-pdg5.onrender.com',
 ]
 
 app.use(cors({
