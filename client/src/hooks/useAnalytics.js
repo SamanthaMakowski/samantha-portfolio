@@ -9,14 +9,14 @@ export default function useAnalytics(page) {
       timestamp: new Date().toISOString(),
     }
 
-    fetch('/api/track', {
+    fetch('https://samantha-p-analytics-server.onrender.com/api/track', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     }).catch(() => {})
 
     const interval = setInterval(() => {
-      fetch('/api/heartbeat', {
+      fetch('https://samantha-p-analytics-server.onrender.com/api/heartbeat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ page, timestamp: new Date().toISOString() }),
