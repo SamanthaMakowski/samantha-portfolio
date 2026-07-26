@@ -25,7 +25,7 @@ function App() {
         <section id="about"><About /></section>
         <section id="skills"><Skills /></section>
         <section id="projects"><Projects /></section>
-        <ChatBot />
+        <section id="ask-ai"><ChatBot /></section>
         <section id="contact"><Contact /></section>
       </main>
       <GitHubFeed />

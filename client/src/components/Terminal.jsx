@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
+import sideEye from '../assets/side-eye-terminal.avif'
+import archerSlap from '../assets/archer-slap.gif'
 
 const COMMANDS = {
   whoami: [
@@ -43,6 +45,8 @@ export default function Terminal() {
   const [booted, setBooted] = useState(false)
   const [bounceY, setBounceY] = useState(0)
   const [showBubble, setShowBubble] = useState(false)
+  const [showExitPrompt, setShowExitPrompt] = useState(false)
+  const [showSlap, setShowSlap] = useState(false)
   const bodyRef = useRef(null)
   const inputRef = useRef(null)
 
@@ -91,6 +95,24 @@ export default function Terminal() {
     }
   }, [open])
 
+  const handleClose = () => {
+    setShowExitPrompt(true)
+  }
+
+  const handleExitYes = () => {
+    setShowExitPrompt(false)
+    setOpen(false)
+  }
+
+  const handleExitNo = () => {
+    setShowExitPrompt(false)
+    setShowSlap(true)
+    setTimeout(() => {
+      setShowSlap(false)
+      setOpen(false)
+    }, 2500)
+  }
+
   const runCommand = (cmd) => {
     const trimmed = cmd.trim().toLowerCase()
     const newLines = []
@@ -123,6 +145,100 @@ export default function Terminal() {
 
   return (
     <>
+      {showExitPrompt && (
+        <div style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 300,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: 'rgba(0,0,0,0.7)',
+        }}>
+          <div style={{
+            background: 'rgba(9, 10, 12, 0.98)',
+            border: '0.5px solid rgba(212, 160, 176, 0.2)',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            width: 'min(480px, calc(100vw - 3rem))',
+            textAlign: 'center',
+          }}>
+            <img
+              src={sideEye}
+              alt="side eye"
+              style={{ width: '100%', display: 'block' }}
+            />
+            <div style={{ padding: '16px' }}>
+              <p style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.75rem',
+                color: 'var(--text-primary)',
+                marginBottom: '16px',
+                letterSpacing: '0.05em',
+              }}>
+                did you try all the prompts?
+              </p>
+              <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <button
+                  onClick={handleExitYes}
+                  style={{
+                    background: 'var(--accent)',
+                    color: 'var(--bg)',
+                    border: 'none',
+                    borderRadius: '4px',
+                    padding: '8px 24px',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.75rem',
+                    letterSpacing: '0.1em',
+                    cursor: 'pointer',
+                  }}
+                >
+                  y
+                </button>
+                <button
+                  onClick={handleExitNo}
+                  style={{
+                    background: 'transparent',
+                    color: 'var(--accent)',
+                    border: '0.5px solid rgba(212, 160, 176, 0.35)',
+                    borderRadius: '4px',
+                    padding: '8px 24px',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.75rem',
+                    letterSpacing: '0.1em',
+                    cursor: 'pointer',
+                  }}
+                >
+                  n
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSlap && (
+        <div style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 300,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: 'rgba(0,0,0,0.7)',
+        }}>
+          <img
+            src={archerSlap}
+            alt="archer slap"
+            style={{
+              maxWidth: 'min(480px, calc(100vw - 3rem))',
+              width: '90%',
+              borderRadius: '12px',
+            }}
+          />
+        </div>
+      )}
+
       <div style={{ position: 'fixed', bottom: '1.5rem', left: '1.5rem', zIndex: 200 }}>
         {showBubble && !open && (
           <div style={{
@@ -151,7 +267,7 @@ export default function Terminal() {
           </div>
         )}
         <button
-          onClick={() => setOpen(!open)}
+          onClick={() => open ? handleClose() : setOpen(true)}
           style={{
             width: '44px',
             height: '44px',
