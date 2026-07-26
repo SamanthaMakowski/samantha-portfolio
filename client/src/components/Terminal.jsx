@@ -4,9 +4,10 @@ import archerSlap from '../assets/archer-slap.gif'
 
 const COMMANDS = {
   whoami: [
-    'Healthcare IT professional and developer.',
-    'A decade in compliance. Now I have the tools to act on it.',
-    'Targeting GRC, IAM, and Healthcare IT roles. Remote only. New York based.',
+    'A decade in healthcare compliance will either break you or sharpen you. For me it was the latter.',
+    'I work hard, learn fast, and hit differently under pressure. The kind of environment most people avoid is exactly where I find my footing.',
+    'Now I build the tools I once had to work around.',
+    'Healthcare IT professional. Full stack developer. Manhattan based. Remote only.',
   ],
   why: [
     'Bear with me through the beginning of this because I promise it lands.',
@@ -15,10 +16,10 @@ const COMMANDS = {
     'I\'m excited to be part of how it can be optimized and I\'m ready for the ride because health tech is nowhere close to its peak. I\'m genuinely looking forward to being part of the growth that might just hold the most gravity in the tech industry and growing with it. I thrive in environments where analytical skills drive my daily performance and I\'m looking forward to contributing within a team that makes a difference.',
   ],
   approach: [
-    'I prefer to find calculated research before I build, even when I already know the answer. Understanding something and knowing how it actually behaves under pressure are two entirely different things and often the reason we find ourselves fixing them. After it\'s mapped it\'s executed thoroughly. In healthcare skipping steps is just not negotiable because the cost of it isn\'t abstract. When something breaks I work backwards, document everything, and find exactly where it started. I don\'t believe in walls. I believe in problems I haven\'t located yet.',
+    'I assess every problem from every angle before I touch it. Find what I recognize, sort by what makes the most sense next, then move. I don\'t panic and I won\'t blindly guess. When something breaks I retrace every step until I find exactly where it started. I think outside the box not because it sounds impressive but because I\'ve seen what happens when linear thinking hits its ceiling and someone has to figure it out anyway. I analyze fast, find the fault, and pivot. Perceiving errors as a challenge rather than a stressor.',
   ],
   life: [
-    'When I\'m not working through a new script I\'m usually decompressing with classic lit. Dostoevsky and Kafka are both favorites but if you ask me to compare them I\'d have to politely decline. That\'d be just about as ambiguous as geopolitics. As a Manhattan local I\'m either trying to snag a reservation at whatever\'s hot right now or standing in a gallery somewhere endlessly staring, trying to work out the dichotomy of a piece. My knack for information is versatile although I love a sprinkle of mental gymnastics at work as well.',
+    'When I\'m not working through a new script I\'m usually decompressing with classic lit. Dostoevsky and Kafka are both favorites but if you ask me to compare them I\'d have to politely decline. That\'d be just about as ambiguous as geopolitics... As a Manhattan local I\'m either trying to snag a reservation at whatever\'s hot right now or standing in a gallery somewhere endlessly staring, trying to work out the dichotomy of a piece. My knack for information is versatile although I love a sprinkle of mental gymnastics at work as well.',
   ],
   contact: [
     'Email: samantha.makowskit@gmail.com',
