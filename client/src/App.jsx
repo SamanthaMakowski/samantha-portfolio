@@ -10,8 +10,11 @@ import ChatBot from './components/ChatBot'
 import Contact from './components/Contact'
 import GitHubFeed from './components/GitHubFeed'
 import Terminal from './components/Terminal'
+import useAnalytics from './hooks/useAnalytics'
 
 function App() {
+  useAnalytics('home')
+
   useEffect(() => {
     document.title = 'Samantha Makowski — IT Portfolio'
   }, [])

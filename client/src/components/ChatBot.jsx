@@ -58,7 +58,7 @@ export default function ChatBot() {
           color: 'var(--accent)',
           marginBottom: '0.75rem',
         }}>
-          Ask Samantha's AI
+          Ask My AI Agent About Me
         </p>
         <h2 style={{
           fontFamily: 'var(--font-heading)',
@@ -68,7 +68,7 @@ export default function ChatBot() {
           lineHeight: 1.15,
           marginBottom: '2rem',
         }}>
-          Have a question? Ask.
+          It knows more than it looks like.
         </h2>
 
         <div style={{

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import hipaaVideo from '../assets/hipaa-preview.mp4'
 import fhirVideo from '../assets/fhir-preview.mp4'
 import rbacVideo from '../assets/rbac-preview.mp4'
+import analyticsPreview from '../assets/analytics-preview.png'
 
 const projects = [
   {
@@ -14,6 +15,7 @@ const projects = [
     github: 'https://github.com/SamanthaMakowski/hipaa-audit-log',
     video: hipaaVideo,
     demo: null,
+    analyticsImage: null,
     flipContent: `Go to the live site and log a few patient record accesses. Then hit the verify endpoint. It walks the entire chain and returns the exact entry where the hash stops matching. That break cascades forward automatically because each entry stores the hash of the one before it. The audit log is stored in a JSON file here for visibility. In a production system that file would be append only with offsite replication. You can see the raw entries, but you cannot quietly change them without the chain catching it.`,
   },
   {
@@ -32,6 +34,7 @@ const projects = [
       { id: '137222736', note: 'Conditions, meds & allergies' },
       { id: '137222737', note: 'Conditions, meds & allergies' },
     ],
+    analyticsImage: null,
     flipContent: null,
   },
   {
@@ -44,19 +47,21 @@ const projects = [
     github: 'https://github.com/SamanthaMakowski/rbac-patient-records',
     video: rbacVideo,
     demo: null,
+    analyticsImage: null,
     flipContent: `Log in as a receptionist, then open your browser network tab and pull a patient record. The clinical fields are not hidden on screen. They are not in the API response at all. They never left the server. Switch to doctor and compare what comes back. Then try a role the system doesn't recognize. It fails closed and returns an empty record, not everything.`,
   },
   {
     number: '04',
     title: 'This Portfolio',
-    short: null,
-    full: null,
-    tags: [],
-    live: '/',
+    short: `Vite and React frontend with a binary background, sticky stacking project cards, 3D flip panels, a functional terminal, and a GitHub feed ticker. Backed by two Node and Express servers — one for AI chat with rate limiting, one for resume tracking.`,
+    full: `The frontend runs on Vite with Bodoni Moda headings and a binary background animation running on a canvas element. The project cards use CSS sticky positioning and 3D flip panels with video previews on the front and demo instructions on the back. The terminal in the bottom left is a fully functional command line with six commands, a bounce animation, a speech bubble, and a meme powered exit confirmation. The GitHub feed is a scrolling ticker at the bottom of the page. The AI assistant section has three suggested questions wired to a functioning backend. The analytics server tracks every visit, referrer, device type, and time on page in real time via heartbeat. The contact form sends directly to email via EmailJS with real time validation.\n\nA Node and Express server sits between the browser and the Anthropic API so the key never touches the client. The endpoint has rate limiting per IP, a daily request cap, and CORS locked to the deployed domain. A second server tracks resume downloads. Both run on Render.`,
+    tags: ['React', 'Vite', 'Node.js', 'Express', 'Anthropic API'],
+    live: null,
     github: 'https://github.com/SamanthaMakowski/samantha-portfolio',
     video: null,
     demo: null,
-    flipContent: `Open the GitHub repo and look at the BE folder. There are two backend servers running behind this page right now. One is tracking every visit, referrer, and device type in real time. One is ready to answer questions about my resume using retrieval. The binary background, typewriter effect, stacking cards, and flip panels are all hand coded. Nothing here came from a template.`,
+    analyticsImage: analyticsPreview,
+    flipContent: `Thank you for taking the time to check out my site!! There is more running behind this page than what you can see. The analytics server is logging this visit right now. Select n in the terminal for an easter egg :)`,
   },
 ]
 
@@ -123,7 +128,7 @@ function ReadMore({ short, full }) {
   )
 }
 
-function FlipPanel({ video, demo, flipContent }) {
+function FlipPanel({ video, demo, flipContent, analyticsImage }) {
   const [flipped, setFlipped] = useState(false)
 
   return (
@@ -160,6 +165,12 @@ function FlipPanel({ video, demo, flipContent }) {
                 muted
                 loop
                 playsInline
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            ) : analyticsImage ? (
+              <img
+                src={analyticsImage}
+                alt="analytics dashboard"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             ) : (
@@ -317,7 +328,7 @@ export default function Projects() {
           lineHeight: 1.15,
           marginBottom: '0.5rem',
         }}>
-          Built to prove it.
+          Latest builds.
         </h2>
         <p style={{
           fontFamily: 'var(--font-body)',
@@ -395,19 +406,21 @@ export default function Projects() {
               </h3>
               <ReadMore short={project.short} full={project.full} />
               <div style={{ display: 'flex', gap: '8px' }}>
-                <a href={project.live} target="_blank" rel="noreferrer" style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  background: 'var(--accent)',
-                  color: 'var(--bg)',
-                  padding: '6px 14px',
-                  borderRadius: '2px',
-                  textDecoration: 'none',
-                }}>
-                  Live Demo
-                </a>
+                {project.live && (
+                  <a href={project.live} target="_blank" rel="noreferrer" style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.7rem',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    background: 'var(--accent)',
+                    color: 'var(--bg)',
+                    padding: '6px 14px',
+                    borderRadius: '2px',
+                    textDecoration: 'none',
+                  }}>
+                    Live Demo
+                  </a>
+                )}
                 <a href={project.github} target="_blank" rel="noreferrer" style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.7rem',
@@ -423,7 +436,7 @@ export default function Projects() {
                 </a>
               </div>
             </div>
-            <FlipPanel video={project.video} demo={project.demo} flipContent={project.flipContent} />
+            <FlipPanel video={project.video} demo={project.demo} flipContent={project.flipContent} analyticsImage={project.analyticsImage} />
           </div>
         ))}
       </div>
